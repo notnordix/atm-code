@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pictures/2GA%20ICON.jpg" type="image/png">
+    <title>2GA - Sistema de Gestión de Cajeros Automáticos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    extend: {
+                        fontFamily: {
+                            'roboto': ['Roboto', 'sans-serif'],
+                        }
+                    },
+                    colors: {
+                        primary: '#1a1a1a',
+                        accent: '#FFD700',
+                        secondary: '#2A2A2A'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.4s ease-out',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-roboto text-base antialiased bg-black">
+    <header class="backdrop-blur-md text-white py-4 w-full flex justify-between items-center fixed top-0 z-50 transition-all duration-300">
+        <a href="https://notnordix.netlify.app#home" class="text-xl ml-6 md:ml-12 font-bold hover:text-accent transition duration-300 flex items-center">
+            nordix<span class="text-accent ml-1">.</span>
+        </a>
+        
+        <nav class="hidden md:flex flex-grow justify-center ml-24">
+            <ul class="flex space-x-8">
+                <li class="relative group"><a href="https://notnordix.netlify.app#home" class="py-2 text-sm uppercase tracking-wider hover:text-accent transition-colors duration-300">Inicio<span class="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a></li>
+                <li class="relative group"><a href="https://notnordix.netlify.app#about" class="py-2 text-sm uppercase tracking-wider hover:text-accent transition-colors duration-300">Acerca de<span class="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a></li>
+                <li class="relative group"><a href="https://notnordix.netlify.app#projects" class="py-2 text-sm uppercase tracking-wider hover:text-accent transition-colors duration-300">Proyectos<span class="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a></li>
+                <li class="relative group"><a href="https://notnordix.netlify.app#contacts" class="py-2 text-sm uppercase tracking-wider hover:text-accent transition-colors duration-300">Contactos<span class="absolute bottom-0 left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a></li>
+            </ul>
+        </nav>
+
+        <button id="mobile-menu-btn" class="md:hidden mr-6 text-2xl"><i class="bi bi-list"></i></button>
+
+        <div class="hidden md:block mr-12">
+            <div class="relative group">
+                <button class="flex items-center space-x-2 text-white px-4 py-2 rounded-full border border-white/20 hover:border-accent transition-all duration-300">
+                    <i class="bi bi-globe2"></i>
+                    <span class="text-sm">ES</span>
+                    <i class="bi bi-chevron-down text-xs ml-1 group-hover:rotate-180 transition-transform duration-300"></i>
+                </button>
+                <div class="absolute right-0 mt-2 py-2 w-40 bg-gray-950 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <a href="index.html" class="block px-4 py-2 text-sm hover:bg-gray-900 hover:text-accent">Inglés</a>
+                    <a href="2GAes.html" class="block px-4 py-2 text-sm hover:bg-gray-900 hover:text-accent">Español</a>
+                    <a href="2GA.html" class="block px-4 py-2 text-sm hover:bg-gray-900 hover:text-accent">Francés</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed left-0 w-full bg-primary/95 backdrop-blur-md text-white py-4 hidden z-40 animate-fade-in">
+        <ul class="space-y-4">
+            <li><a href="https://notnordix.netlify.app#home" class="block px-6 py-2 hover:bg-gray-900 transition-colors duration-200">Inicio</a></li>
+            <li><a href="https://notnordix.netlify.app#about" class="block px-6 py-2 hover:bg-gray-900 transition-colors duration-200">Acerca de</a></li>
+            <li><a href="https://notnordix.netlify.app#projects" class="block px-6 py-2 hover:bg-gray-900 transition-colors duration-200">Proyectos</a></li>
+            <li><a href="https://notnordix.netlify.app#contacts" class="block px-6 py-2 hover:bg-gray-900 transition-colors duration-200">Contactos</a></li>
+            <li class="border-t border-gray-700 mt-4 pt-4">
+                <div class="px-6">
+                    <p class="text-sm text-gray-400 mb-2">Seleccionar Idioma</p>
+                    <a href="index.html" class="block py-2 hover:text-accent">Inglés</a>
+                    <a href="2GAes.html" class="block py-2 hover:text-accent">Español</a>
+                    <a href="2GA.html" class="block py-2 hover:text-accent">Francés</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main class="pt-24 container mx-auto px-4 max-w-6xl">
+        <section class="text-center mb-16 animate-fade-in">
+            <div class="animate-float mb-8">
+                <img src="ATMLOGO1.png" alt="Logotipo del Sistema de Gestión de Cajeros Automáticos" 
+                class="w-48 md:w-56 mx-auto transition-transform duration-500 hover:scale-110">
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Sistema de Gestión de Cajeros Automáticos</h1>
+            <p class="text-gray-300 max-w-2xl mx-auto">Una solución bancaria completa desarrollada en lenguaje C</p>
+        </section>
+
+        <section class="bg-gray-900 rounded-2xl shadow-lg p-8 mb-16 relative animate-fade-in">
+            <div class="absolute -top-4 left-8 bg-accent text-primary px-4 py-1 rounded-full font-semibold">Acerca del Proyecto</div>
+            <div class="space-y-8 mt-4">
+                <p class="text-gray-100 leading-relaxed">
+                    Bienvenido a mi proyecto de Sistema de Gestión de Cajeros Automáticos (2GA), construido completamente en el lenguaje C. Este proyecto representa mi viaje en dominar conceptos fundamentales de programación mientras creo una solución bancaria práctica.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-black p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-4 text-white flex items-center"><i class="bi bi-mortarboard-fill mr-2 text-accent"></i>Objetivos Educativos</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-100"><i class="bi bi-check2-circle text-accent mt-1 mr-2"></i><span>Implementación avanzada de estructuras de datos</span></li>
+                            <li class="flex items-start text-gray-100"><i class="bi bi-check2-circle text-accent mt-1 mr-2"></i><span>Manejo de archivos y almacenamiento persistente</span></li>
+                            <li class="flex items-start text-gray-100"><i class="bi bi-check2-circle text-accent mt-1 mr-2"></i><span>Implementación de operaciones bancarias seguras</span></li>
+                            <li class="flex items-start text-gray-100"><i class="bi bi-check2-circle text-accent mt-1 mr-2"></i><span>Prácticas de código limpio y mantenibilidad</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-black p-6 rounded-xl">
+                        <h3 class="font-bold text-lg mb-4 text-white flex items-center"><i class="bi bi-gear-fill mr-2 text-accent"></i>Características Clave</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-100"><i class="bi bi-shield-check text-accent mt-1 mr-2"></i><span>Sistema de autenticación de usuario seguro</span></li>
+                            <li class="flex items-start text-gray-100"><i class="bi bi-cash-stack text-accent mt-1 mr-2"></i><span>Gestión de transacciones (retiros, depósitos, transferencias)</span></li>
+                            <li class="flex items-start text-gray-100"><i class="bi bi-person-gear text-accent mt-1 mr-2"></i><span>Administración de cuentas</span></li>
+                            <li class="flex items-start text-gray-100"><i class="bi bi-clock-history text-accent mt-1 mr-2"></i><span>Seguimiento del historial de transacciones</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+                <div class="group relative overflow-hidden rounded-xl shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <img src="pictures/screen1.png" alt="Captura de Pantalla 1" class="w-full h-48 object-cover transition duration-300 group-hover:scale-110" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="pointer-events: none;">
+                        <span class="text-white text-sm">Haz clic para ampliar</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <img src="pictures/screen2.png" alt="Screenshot 2" class="w-full h-48 object-cover transition duration-300 group-hover:scale-110" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="pointer-events: none;">
+                        <span class="text-white text-sm">Click to zoom</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <img src="pictures/screen3.png" alt="Screenshot 3" class="w-full h-48 object-cover transition duration-300 group-hover:scale-110" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="pointer-events: none;">
+                        <span class="text-white text-sm">Click to zoom</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8 animate-fade-in">
+                <h2 class="text-2xl font-bold text-center mb-6 text-white">Demostración del Sistema</h2>
+                <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <video controls class="w-full" poster="pictures/screen1.png">
+                        <source src="video/2GA%20VIDEO.mp4" type="video/mp4">
+                        Tu navegador no soporta la etiqueta de video.
+                    </video>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="projet2GA.zip" download 
+                       class="inline-flex items-center px-6 py-3 bg-accent text-primary rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-gray-50"
+                       aria-label="Descargar el proyecto 2GA">
+                        <i class="bi bi-cloud-arrow-down text-2xl mr-3"></i>
+                        <span class="text-lg font-medium">Descargar Proyecto</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+                <div class="group relative overflow-hidden rounded-xl shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <img src="pictures/screen4.png" alt="Screenshot 4" class="w-full h-48 object-cover transition duration-300 group-hover:scale-110" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="pointer-events: none;">
+                        <span class="text-white text-sm">Click to zoom</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <img src="pictures/screen5.png" alt="Screenshot 5" class="w-full h-48 object-cover transition duration-300 group-hover:scale-110" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="pointer-events: none;">
+                        <span class="text-white text-sm">Click to zoom</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl shadow-lg border-2 border-amber-400 shadow-amber-400/50">
+                    <img src="pictures/screen6.png" alt="Screenshot 6" class="w-full h-48 object-cover transition duration-300 group-hover:scale-110" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" style="pointer-events: none;">
+                        <span class="text-white text-sm">Click to zoom</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="lightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50 p-4">
+            <button onclick="closeZoom(event)" class="absolute top-4 right-4 text-white hover:text-accent text-2xl"><i class="bi bi-x-lg"></i></button>
+            <img id="lightboxImg" src="" alt="Imagen ampliada" class="max-w-[90%] max-h-[90vh] rounded-lg">
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-6 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="flex items-center justify-center text-sm"><i class="bi bi-code-slash mr-2 text-accent"></i>Desarrollado con Lenguaje C</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.querySelector('i').classList.toggle('bi-list');
+            mobileMenuBtn.querySelector('i').classList.toggle('bi-x-lg');
+        });
+
+        // Lightbox functionality
+        function zoomImage(myelem) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            lightboxImg.src = myelem.src;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeZoom(event) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            if (event.target !== lightboxImg) {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add scroll reveal animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in').forEach((element) => {
+            element.classList.add('opacity-0', 'translate-y-4', 'transition', 'duration-500');
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
